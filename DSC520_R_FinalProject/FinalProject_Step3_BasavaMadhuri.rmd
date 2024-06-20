@@ -1,0 +1,799 @@
+---
+title: "Final Project Step3"
+author: "Basava, Madhuri"
+date: "2023-03-04"
+output:
+  pdf_document: 
+    highlight: espresso
+  word_document: default
+bibliography: bibliography.bib
+link-citations: true
+always_allow_html: true
+---
+
+# Introduction
+
+Diabetes is one of the leading causes of death worldwide and especially in the USA. Nowadays more people are getting affected by diabetes. This project is to analyze different factors affecting diabetes and based on the results let people know how to prevent diabetes by altering the affecting factors.I feel that health is more than anything in the world, so this project will be useful for many people.
+
+
+# Below are some of the research questions that are relevant
+
+1)  How can we reduce diabetes cases in the future?
+2)  What are the factors affecting diabetes?
+3)  How much Physical activity in a certain period is needed to reduce diabetes cases?
+4)  Is smoking, a direct or indirect cause of diabetes?
+5)  How much BMI value range should a person have to reduce the possibility of diabetes?
+6)  Does High Blood Pressure, a reason for diabetes?
+7)  Are Males or Females more prone to diabetes?
+8)  What age people are getting affected by diabetes more? 
+9)  Is a person's heart attack/stroke has to be more careful?
+10)  Will high cholesterol lead to Diabetes?
+11)  Will heavy alcohol consumption lead to Diabetes?
+12)  Is diabetes dependent on physical, general, or mental health? 
+
+
+# Approach
+
+* Clean the data: Firstly, I will remove the NA values from the dataset.
+* Perform some transformations to tidy up the data.
+* Then, Analyse the data and visualize it in the form of different graphs and 
+  charts to figure out
+* what are the factors which are affecting diabetes?
+* plot the graphs with Diabetes on Y axis and physical activity on X-axis and analyze them.
+* plot the graphs with Diabetes on Y axis and smoking on X-axis
+* plot the graphs with Diabetes on Y axis and BMI on X-axis
+* plot the graphs with Diabetes on Y axis and HighBP on X-axis
+* plot the graphs with Diabetes on Y axis and Sex on X-axis
+* plot the graphs with Diabetes on Y axis and Age on X-axis
+* plot the graphs with Diabetes on Y axis and HeartDiseaseorAttack on X-axis
+* plot the graphs with Diabetes on Y axis and HighChol on X-axis
+* plot the graphs with Diabetes on Y axis and HvyAlcoholConsump on X-axis
+* plot the graphs with Diabetes and physical, general, or mental health
+* Finally provide useful analysis for people who can change their 
+  lifestyle to reduce Diabetes cases.
+
+
+
+
+# How your approach addresses (fully or partially) the problem.
+The analysis gives us the idea of which factors are more likely to cause diabetes and share the results with everyone, so that people will change their lifestyles accordingly to reduce diabetes problems in the future.
+
+
+# Data  (Minimum of 3 Datasets - but no requirement on number of fields or rows)
+3 data sets  chosen for this project are from Kaggle site.
+
+* diabetes_012_health_indicators_BRFSS2015.xlsx
+* diabetes_binary_5050split_health_indicators_BRFSS2015.xlsx
+* diabetes_binary_health_indicators_BRFSS2015.xlsx
+
+The purpose of the data is to analyze the factors/predictors affecting Diabetes. The data was collected from the year 2015. The  original data has 22 columns in each data set many thousands of rows/records. 
+There were no missing data. I took 50 rows/records from each dataset and combined them into one dataset by binding the rows 
+which now have 150 rows/records.
+
+# Required Packages
+
+The important packages needed for this project are  
+
+* realxl -- to read the excel data files.
+* dplyr -- to analyze/transform the data using GroupBy, Summarize, Mutate, Filter, Select, and Arrange
+* tidyr -- to tidy data to make the data more consistent 
+* ggplot2 -- for visualizing the different factors affecting diabetes.
+* pheatmap -- to draw a heatmap of our correlation table
+* psych --  to derive descriptive statistics for a data set 
+
+# Plots and Table Needs
+
+Below are the Plots and tables used in this project: 
+
+* histograms
+* bar graphs
+* heatmaps
+* scatterplots
+* boxplots
+
+# Questions for future steps
+
+I do not know how to graph using heatmaps to visualize all the predictors for data analysis.
+
+##  Diabetes Indicator Project
+## Set the working directory to the root of your DSC 520 directory
+```{r}
+setwd("C:/MadhuriDocs/MSInDataScience/DSC520RCourse3/Week8/project_data/Health")
+getwd()
+```
+
+
+
+## Load the dataset 1 
+
+```{r}
+library(readxl)
+excel_sheets('diabetes_indicator.xlsx')
+diabetes_indicator_df <- read_excel('diabetes_indicator.xlsx',  sheet='Sheet1')
+head(diabetes_indicator_df)
+
+
+```
+
+#rename the "Diabetes_012" column to "Diabetes" column to match columns with other dataframes
+```{r}
+names(diabetes_indicator_df)[names(diabetes_indicator_df) == "Diabetes_012"] <- "Diabetes"
+head(diabetes_indicator_df)
+```
+
+
+
+```{r}
+summary(diabetes_indicator_df)
+```
+
+```{r}
+library("psych")
+describe(diabetes_indicator_df)
+```
+
+
+## Load the dataset 2
+```{r}
+excel_sheets('diabetes_indicator.xlsx')
+diabetes_indicator_5050split_df <- read_excel('DiabetesIndicator_5050split.xlsx',  sheet='Sheet1')
+head(diabetes_indicator_5050split_df)
+
+
+```
+
+#rename the "Diabetes_binary" column to "Diabetes" column to match columns with other dataframes
+```{r}
+names(diabetes_indicator_5050split_df)[names(diabetes_indicator_5050split_df) == "Diabetes_binary"] <- "Diabetes"
+head(diabetes_indicator_5050split_df)
+```
+
+
+
+```{r}
+summary(diabetes_indicator_5050split_df)
+```
+
+```{r}
+describe(diabetes_indicator_5050split_df)
+```
+
+## Load the dataset 3 
+
+```{r}
+excel_sheets('diabetes_indicator.xlsx')
+diabetes_binary_df <- read_excel('diabetes_binary.xlsx',  sheet='Sheet1')
+head(diabetes_binary_df)
+
+
+```
+
+
+## Data importing and cleaning steps are explained in the text and follow a logical process.  Outline your data preparation and cleansing steps.
+## I have followed a step by step process 
+## 1) Rename the "Diabetes_binary" column to "Diabetes" column to match columns with other dataframes. 
+## 2) Combined the 3 dataframes into one data frame and
+## 3) Omit the data with Na values.
+## 4) Remove the outliers.
+
+
+
+## STEP 1: Rename the "Diabetes_binary" column to "Diabetes" column to match columns with other dataframes
+```{r}
+names(diabetes_binary_df)[names(diabetes_binary_df) == "Diabetes_binary"] <- "Diabetes"
+head(diabetes_binary_df)
+```
+
+```{r}
+summary(diabetes_binary_df)
+```
+```{r}
+describe(diabetes_binary_df)
+
+```
+
+## STEP 2: Bind all the three datasets into one dataset
+
+```{r}
+library(dplyr)
+diabetes_df <- bind_rows(diabetes_indicator_df, diabetes_indicator_5050split_df, diabetes_binary_df)
+head(diabetes_df)
+```
+
+
+
+
+```{r}
+summary(diabetes_df)
+```
+
+```{r}
+describe(diabetes_df)
+
+```
+
+
+##Look at the data
+```{r}
+library(tidyverse)
+glimpse(diabetes_df)
+```
+
+
+## STEP 3: Omit the data with Na values.
+
+```{r}
+na.omit(diabetes_df)
+```
+
+
+Here there are no NA values in the data
+
+
+##STEP 4: Remove the outlierts
+
+
+## Analyze how Diabetes depends on BMI 
+
+```{r}
+
+# Create a Histogram of the BMI variable using the ggplot2 package.
+
+library(ggplot2)
+ggplot(diabetes_df,aes(BMI, fill=..x..)) + geom_histogram(bins = 15) + 
+  scale_fill_gradient("Legend",low = "lightgreen", high = "lightblue")
+```
+
+
+```{r}
+## remove the outliers
+x <- diabetes_df$`BMI`                                             # Print data
+
+x_out_rm <- x[!x %in% boxplot.stats(x)$out]    # Remove the outliers
+
+
+length(x) - length(x_out_rm)                   # Count the removed observations
+
+
+```
+
+
+## Create boxplot without outliers
+
+```{r}
+boxplot(x_out_rm)
+
+
+```
+
+## With a clean dataset, show what the final data set looks like. However, do not print off a data frame with 200+ rows; show me the data in the most condensed form possible.
+
+
+```{r}
+head(diabetes_df)
+```
+## What do you not know how to do right now that you need to learn to import and cleanup your dataset?
+
+## Now, I do not know how to show a data frame after the outliers are removed.I need to learn it.
+
+
+## I just tried to figure it out an created a dataframe by removing outliers.
+## Removing outlier data from data frame
+```{r}
+diabetes_df <- diabetes_df[(diabetes_df$`BMI` %in% x_out_rm ),]
+head(diabetes_df)
+```
+
+```{r}
+summary(diabetes_df)
+```
+
+
+
+## Discuss how you plan to uncover new information in the data that is not self-evident.
+## I will use different functions like groupby and summerize to calculate the average BMI to analyze how much BMI should be maintained by an individual to avoid Diabetis.
+
+
+## Using GroupBy function from dplyr package to group by Diabetes
+
+```{r}
+library(dplyr)
+
+diabetes_df %>% group_by(Diabetes) %>% summarize(AvgBMI = mean(`BMI`))
+```
+
+0 = no diabetes 1 = prediabetes 2 = diabetes
+So, based on the above analysis, the BMI should be maintained around 27.7 in order to reduce the chances of Diabetes.
+
+
+
+
+## What are different ways you could look at this data to answer the questions you want to answer?
+## I try to use different functions and fugure out the averages in order to analyze the data and find the answers.
+
+
+## Do you plan to slice and dice the data in different ways, create new variables, or join separate data frames to create new summary information? Explain.
+## Yes i plan to slice and dice the data in different ways, create new variables, or join separate data frames to create new summary information as shown in the above example on BMI.
+##I combined the 3 data sets into one. sliced the data to remove outliers.  Create a new variable on average BMI(AvgBMI) and summarize it. 
+
+## How could you summarize your data to answer key questions?
+## Based on the summarized values on Average BMI , It should be maintained around 27.7 in order to reduce the chances of Diabetes.
+
+## What types of plots and tables will help you to illustrate the findings to your questions? Ensure that all graph plots have axis titles, legend if necessary, scales are appropriate, appropriate geoms used, etc.).
+## Scatter plots, Histograms and boxplots are used to visualize the data.
+
+```{r}
+ggplot(diabetes_df,aes(BMI, fill=..x..)) + geom_histogram(bins = 15) +
+labs(
+    title = "Histogram of BMI",
+    x = "BMI",
+    y = "count"
+  ) + scale_fill_gradient("Legend",low = "lightgreen", high = "lightblue")
+
+```
+
+```{r}
+library(ggplot2)
+library(emoGG)
+
+ggplot(diabetes_df, aes(BMI, Diabetes, color=Diabetes)) + geom_point() +
+labs(
+    title = "Scatter Plot of Diabetes 2015 Survey Data",
+    x = "BMI",
+    y = "Diabetes"
+  ) +
+  geom_emoji(emoji="1f337")    #added tulip emoji for BMI data points
+```
+
+
+## What do you not know how to do right now that you need to learn to answer your questions?
+## I do not know how to use heatmaps to analyze the different variables at once to answer my questions. I do not know which extra packages I need to install.
+
+##  Do you plan on incorporating any machine learning techniques to answer your research questions? Explain.
+## As my data has all continuous variables, I plan to use Linear Reggession Machine learning Technique to predict the probabilitiy of Diabetes.
+
+
+```{r}
+diabetes_df <- diabetes_df  %>% select(Diabetes, BMI, Smoker, HighBP, HighChol, HeartDiseaseorAttack,
+                                       PhysActivity, HvyAlcoholConsump, Age, Sex)
+diabetis_model <- lm(Diabetes~., data=diabetes_df)
+diabetis_model <- glm(Diabetes~., data=diabetes_df , family=gaussian)
+diabetis_model
+```
+
+```{r}
+summary(diabetis_model)
+```
+
+
+## Creating predictions using `predict()`
+
+
+```{r}
+predicted_df <- data.frame(Diabetes = predict(diabetis_model, diabetes_df),
+                           BMI = diabetes_df$BMI, Smoker = diabetes_df$Smoker, HighBP = diabetes_df$HighBP, HighChol = diabetes_df$HighChol, 
+                           HeartDiseaseorAttack = diabetes_df$HeartDiseaseorAttack, PhysActivity = diabetes_df$PhysActivity, 
+                           HvyAlcoholConsump = diabetes_df$HvyAlcoholConsump, Age = diabetes_df$Age, Sex = diabetes_df$Sex)
+head(predicted_df)
+```
+
+## Some additional questions you may want to consider asking yourself as you work through this section of the project:
+
+## What features could you ﬁlter on?
+## Filtered on BMI to remove the outliers from the dataframe.
+
+## How could arranging your data in different ways help?
+## Arranging the data for example in descending order of BMI can understand more about the data
+
+```{r}
+diabetes_df  %>% arrange(desc(BMI))
+```
+
+
+## Can you reduce your data by selecting only certain variables?
+## Yes,we can reduce the data by selecting the variables which are relavant for our analysis. 
+
+```{r}
+diabetes_df <- diabetes_df  %>% select(Diabetes, BMI, Smoker, HighBP, HighChol, HeartDiseaseorAttack, 
+                                       PhysActivity, HvyAlcoholConsump, Age, Sex) %>% arrange(desc(BMI))
+
+head(diabetes_df)
+```
+
+
+##  Could creating new variables add new insights?
+
+## Yes, creating new variables can add new insights, for example creating avgBMI variable from BMI could let us understand the data even more
+
+```{r}
+
+diabetes_df %>% group_by(Diabetes) %>% summarize(AvgBMI = mean(`BMI`))
+```
+
+
+
+## Could summary statistics at different categorical levels tell you more?
+## Yes, summary statistics at different categorical levels can tell us more. For example, if we analize with  Diabetes as categorical variable with 0 = no diabetes 1 = prediabetes 2 = diabetes
+## based on the above analysis, the BMI should be maintained around 27.2 in order to reduce the chances of Diabetes.
+
+
+
+## How can you incorporate the pipe (%>%) operator to make your code more efﬁcient?
+## Pipe operator can help in many ways, for example select some variables to reduce the data for better analysis. or  it can be used for group_by() and summerize fuctions as in the above examples.
+
+
+
+
+## Analysis on predictors: physical activity, smoking, BMI, HighBP, Sex, Age, HeartDiseaseorAttack, HighChol, HvyAlcoholConsump
+
+#Histogram
+```{r}
+library(dplyr)
+library(tidyr)
+library(DT)
+library(formattable)
+PhysActivity_data <- diabetes_df %>%
+           group_by(PhysActivity) %>%
+               dplyr::summarize(Total = n()) 
+datatable(PhysActivity_data)
+
+
+
+```
+
+```{r}
+
+ggplot(PhysActivity_data, aes(PhysActivity, Total)) + 
+        geom_bar( stat = "identity", fill = "steelblue", color = "red") +
+           ggtitle("Histogram of PhysActivity") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma)
+```
+
+## In this sample data set that we took, the total number of people who do Physical activity in the past 30 days is more than the total number of people who do not do any physical activity.
+
+```{r}
+diabetes_df %>% group_by(Diabetes) %>% summarize(AvgPhysActivity = mean(`PhysActivity`))
+```
+
+## Scatter Plot
+```{r}
+ggplot(diabetes_df, aes(PhysActivity, Diabetes)) + geom_point() +
+labs(
+    title = "Scatter Plot of PhysActivity Vs Diabetis",
+    x = "PhysActivity",
+    y = "Diabetis"
+  ) + geom_emoji(emoji="1f170")    #added  emoji       for physical activity
+```
+
+
+```{r}
+cor.test(diabetes_df$PhysActivity, diabetes_df$Diabetes)
+```
+## since T-value is negative, Diabetis is inversely proportional to Physical activity. So, as the physical activity increases, the chance of getting diabetis reduces.
+
+
+# Histogram of smoker
+```{r}
+
+Smoker_data <- diabetes_df %>%
+           group_by(Smoker) %>%
+               dplyr::summarize(Total = n()) 
+datatable(Smoker_data)
+
+
+
+```
+
+```{r}
+
+ggplot(Smoker_data, aes(Smoker, Total)) + 
+        geom_bar( stat = "identity", fill = "pink", color = "steelblue") +
+           ggtitle("Histogram of Smoker") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma)
+```
+## In this sample data set that we took, the total number of people who smoked at least 100 cigarettes in your entire life is little more than the total number of people who do not smoke.
+
+```{r}
+diabetes_df %>% group_by(Diabetes) %>% summarize(AvgSmoker = mean(`Smoker`))
+```
+
+
+## Smoker correlation 
+
+```{r}
+cor.test(diabetes_df$Smoker, diabetes_df$Diabetes)
+```
+
+## Since the T-value is positive, Diabetis is directly proportioanl to the Smoker. That means the smoker will have more chances of getting Diabetis.
+
+
+
+# DataTable  of HighBP
+```{r}
+
+HighBP_data <- diabetes_df %>%
+           group_by(HighBP) %>%
+               dplyr::summarize(Total = n()) 
+datatable(HighBP_data)
+
+```
+
+# Histogram of HighBP
+
+```{r}
+
+ggplot(HighBP_data, aes(HighBP, Total)) + 
+        geom_bar( stat = "identity", fill = "lightgreen", color = "steelblue") +
+           ggtitle("Histogram of HighBP") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma)
+```
+
+## In this sample data set that we took, the total number of people who had 
+## high BP is nearly equal to the number of people wh did not have HighBP.
+
+## HighBP correlation 
+
+```{r}
+cor.test(diabetes_df$HighBP, diabetes_df$Diabetes)
+```
+## Since the T-value is positive, Diabetis is directly proportioanl to the HighBP. 
+## That means the person with High Blood Pressure will have more chances of getting Diabetis.
+
+
+
+# DataTable of High Cholesterol
+```{r}
+
+HighChol_data <- diabetes_df %>%
+           group_by(HighChol) %>%
+               dplyr::summarize(Total = n()) 
+datatable(HighChol_data)
+
+```
+
+## In this sample data set that we took, the total number of people who had 
+## high Cholesterol is nearly equal to the number of people wh did not have high Cholesterol.
+
+
+
+# Histogram of High Cholesterol
+
+```{r}
+
+ggplot(HighChol_data, aes(HighChol, Total)) + 
+        geom_bar( stat = "identity", fill = "lightyellow", color = "steelblue") +
+           ggtitle("Histogram of High Cholesterol") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma)
+```
+ 
+ ## High Cholesterol correlation with Diabetes
+
+```{r}
+cor.test(diabetes_df$HighChol, diabetes_df$Diabetes)
+```
+## Since the T-value is positive, Diabetis is directly proportioanl to the high Cholesterol That means the people with high Cholesterol will have more chances of getting Diabetis.
+ 
+ 
+# DataTable of Heavy alcohol consumption
+```{r}
+
+HvyAlcoholConsump_data <- diabetes_df %>%
+           group_by(HvyAlcoholConsump) %>%
+               dplyr::summarize(Total = n()) 
+datatable(HvyAlcoholConsump_data)
+
+```
+ 
+## only a little amount of data is available from sample taken. It is better to analyze by taking more data.. For now we try to analyze with whatever data we have.
+
+
+# Histogram of Heavy alcohol consumption
+
+```{r}
+
+ggplot(HvyAlcoholConsump_data, aes(HvyAlcoholConsump, Total)) + 
+        geom_bar( stat = "identity", fill = "lightblue", color = "steelblue") +
+           ggtitle("Histogram of Heavy alcohol consumption") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma)
+```
+
+```{r}
+cor.test(diabetes_df$HvyAlcoholConsump, diabetes_df$Diabetes)
+```
+## Since p value is greater than 0.05, that the correlation between these two variables is statistically significant.
+## Also with the little amount of data that we have here, we cannot not analyze it correctly.
+  
+
+## Age
+
+# DataTable of Age
+```{r}
+
+Age_data <- diabetes_df %>%
+           group_by(Age) %>%
+               dplyr::summarize(Total = n()) 
+datatable(Age_data)
+
+```
+
+```{r}
+ggplot(Age_data, aes(Age, Total, fill=..x..)) + 
+        geom_bar( stat = "identity" ) +
+           ggtitle("Histogram of Age") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma) + 
+  scale_fill_gradient("Legend",low = "yellow", high = "lightgreen")
+```
+## 13-level age category (_AGEG5YR see codebook) 1 = 18-24 9 = 60-64 13 = 80 or older
+
+## Age correlation 
+```{r}
+cor.test(diabetes_df$Age, diabetes_df$Diabetes)
+```
+## Since the T-value is positive, Diabetis is directly proportioanl to the Age.  That means as the individual gets older, chances of getting Diabetis is more. Since the p-value is less than 0.05, we can say that the correlation between these two variables is statistically significant.
+
+
+
+
+# DataTable of Sex
+```{r}
+
+Sex_data <- diabetes_df %>%
+           group_by(Sex) %>%
+               dplyr::summarize(Total = n()) 
+datatable(Sex_data)
+
+```
+# Here 0 = female 1 = male. Data related to Female is more than the males.
+
+# Histogram of Sex
+
+```{r}
+
+ggplot(Sex_data, aes(Sex, Total)) + 
+        geom_bar( stat = "identity", fill = "#8496a9", color = "steelblue") +
+           ggtitle("Histogram of Sex") +
+            theme(legend.position = "none") +
+            scale_y_continuous(labels = comma)
+```
+
+## sex correlation 
+```{r}
+cor.test(diabetes_df$Sex, diabetes_df$Diabetes)
+```
+## Since the p-value is greater than 0.05, we can say that the correlation between these two variables is not statistically significant.
+
+## HeartDiseaseorAttack
+
+```{r}
+diabetes_df %>% group_by(Diabetes) %>% summarize(AvgHeartDiseaseorAttack = mean(`HeartDiseaseorAttack`))
+```
+
+
+
+```{r}
+library("ggplot2")
+# convert Diabetes column from numeric to factor with three levels
+# diabetes_df$Diabetes <- cut(diabetes_df$Diabetes, 3, labels=c('Non-Diabetec', 'Pre-Diabetec', 'Diabetec'))
+ggplot(diabetes_df, aes(x = HeartDiseaseorAttack, y=Diabetes, color=Diabetes)) +                 # Scatterplot in ggplot2
+  geom_point() +geom_emoji(emoji="2764") 
+```
+
+
+
+## HeartDiseaseorAttack correlation 
+```{r}
+cor.test(diabetes_df$HeartDiseaseorAttack, diabetes_df$Diabetes)
+```
+## Here the T-value is positive, So, Diabetis is directly proportioanl to the HeartDiseaseorAttack.  That means the individual with HeartDiseaseorAttack has more chances of getting diabetes. Since the p-value is less than 0.05, we can say that the correlation between these two variables is statistically significant.
+
+
+
+
+## We can also analyze the distribution of Diabetes across Age, Sex and HeartDiseaseorAttack
+## 
+
+```{r}
+ggplot(diabetes_df, aes(x = Diabetes, y = Age, fill = Diabetes)) +
+  geom_boxplot(size = .75)  +
+  facet_grid(HeartDiseaseorAttack ~ Sex, margins = FALSE)  +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
+```
+
+
+
+
+
+#create a heatmap to analyze various other factors of Diabetis
+
+```{r}
+library(ggplot2)
+library(reshape2)
+ 
+data <- cor(diabetes_df[sapply(diabetes_df,is.numeric)])
+ 
+data1 <- melt(data)
+ 
+ggplot(data1, aes(x = Var1,
+                  y = Var2,
+                  fill = value)) + geom_tile() 
+```
+
+
+
+
+
+# Introduction
+
+##  Diabetes is one of the leading causes of death worldwide and especially in the USA. Nowadays more people are getting affected by diabetes. 
+## This project is to analyze different factors affecting diabetes and based on the results let people know how to prevent diabetes by 
+## altering the affecting factors.I feel that health is more than anything in the world, so this project will be useful for many people.
+
+
+# The problem statement I addressed. 
+
+## I addressed the Diabetes Issue by analyzing the various factors such as BMI, Physiscal Activity, smoking, age, sex and HeartDiseaseorAttack
+
+
+# How you addressed this problem statement
+## I took three data sets and combined them aftering renaming the column names. Cleaned the data by removing the NA values from the dataset.
+## Performed some transformations to tidy up the data. Then, analyzed the data and visualize it in the form of different graphs and 
+## charts to figure out the important factors that are affecting diabetes. plot the graphs with Diabetes on Y axis and different factors on X-axis and analyzed them.
+##  Finally provided useful analysis for people who can change their lifestyle to reduce Diabetes cases.
+
+
+# Analysis.
+## The analysis of various factors on Diabetes with the sample data that I took is provided below:
+
+* The BMI should be maintained around 27.2 in order to reduce the chances of Diabetes.
+* Diabetes is directly proportional to the Smoker. That means the smoker will have more chances of getting Diabetes.
+* The individual with Heart Disease or Attack has more chances of getting diabetes.
+* As the physical activity of an individual increases, the chance of getting diabetes reduces.
+* Diabetes is directly proportional to the High Blood Pressure. That means the person with High Blood Pressure will have more chances of getting Diabetes.
+* As the individual gets older, chances of getting Diabetes is more. 
+* Diabetes is directly proportional to the high Cholesterol That means the people with high Cholesterol will have more chances of getting Diabetes.
+* Regarding Heavy Alcohol Consumption, with the little amount of data that we have taken as the sample data, we could not able to analyze it correctly.
+* Both Male and Females are equally prone to Diabetes.
+
+
+
+
+# Implications. 
+## It Implies that all the individuals need to take precautions to not get effected by Diabetes
+## as there are certain factors which directly or indirectly causes Diabetes.
+## For example people with high Blood Pressure, High Cholesterol or smoking are prone to diabetes, 
+## which can effect their health in many ways such as nervous system damage, eye or foot damage, Osteoporosis, or demensia,
+## It  is better to understand the factors that effect Diabetes and correct their lifestyle to lead a healthy life.
+
+
+
+# Limitations.
+
+## Could not completely run the model on the very large dataset provided in kaggle.
+## Could not analyze all the factors affecting diabetes.
+## Here only the Logistic Regression Model is used. This model can be improved by training and testing with various other models such as Ordinal Regression Model and also with different sets of data related to Diabetes.
+## Also, Various other models can be tried and tested for better results.
+
+
+# Concluding Remarks
+
+## This project helps in Understanding the factors that effects Diabetes so that the individual can correct his/her lifestyle to lead a better and healthy life.
+## An individual with High BP/cholesterol can lower blood Pressure/cholesterol with certain medications and diet restrictions.
+## An individual can improve the Physical activity.
+## Smoking can be avoided.
+## A person with previous Heart Dicease or Attack has to take more precautions, going to a doctor as much as needed.
+## As the individual gets older more precaution has to be taken such as annual physical doctor appointments and care can be provided for various factors effecting Diabetes.
+
+
+
+
+
+
+# References
+
+*[Datasets from Kaggle website](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)*

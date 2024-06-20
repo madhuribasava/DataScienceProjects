@@ -1,0 +1,258 @@
+---
+title: "Final Project Step1"
+author: "Basava, Madhuri"
+date: "2023-02-12"
+output:
+  pdf_document: 
+    highlight: espresso
+  word_document: default
+bibliography: bibliography.bib
+link-citations: true
+---
+
+# Introduction
+
+Diabetes is one of the leading causes of death worldwide and especially in the USA. Nowadays more people are getting affected by diabetes. This project is to analyze different factors affecting diabetes and based on the results let people know how to prevent diabetes by altering the affecting factors.I feel that health is more than anything in the world, so this project will be useful for many people.
+
+
+# Below are some of the research questions that are relevant
+
+1)  How can we reduce diabetes cases in the future?
+2)  What are the factors affecting diabetes?
+3)  How much Physical activity in a certain period is needed to reduce diabetes cases?
+4)  Is smoking, a direct or indirect cause of diabetes?
+5)  How much BMI value range should a person have to reduce the possibility of diabetes?
+6)  Does High Blood Pressure, a reason for diabetes?
+7)  Are Males or Females more prone to diabetes?
+8)  What age people are getting affected by diabetes more? 
+9)  Is a person's heart attack/stroke has to be more careful?
+10)  Will high cholesterol lead to Diabetes?
+11)  Will heavy alcohol consumption lead to Diabetes?
+12)  Is diabetes dependent on physical, general, or mental health? 
+
+
+# Approach
+
+* Clean the data: Firstly, I will remove the NA values from the dataset.
+* Perform some transformations to tidy up the data.
+* Then, Analyse the data and visualize it in the form of different graphs and 
+  charts to figure out
+* what are the factors which are affecting diabetes?
+* plot the graphs with Diabetes on Y axis and physical activity on X-axis and analyze them.
+* plot the graphs with Diabetes on Y axis and smoking on X-axis
+* plot the graphs with Diabetes on Y axis and BMI on X-axis
+* plot the graphs with Diabetes on Y axis and HighBP on X-axis
+* plot the graphs with Diabetes on Y axis and Sex on X-axis
+* plot the graphs with Diabetes on Y axis and Age on X-axis
+* plot the graphs with Diabetes on Y axis and HeartDiseaseorAttack on X-axis
+* plot the graphs with Diabetes on Y axis and HighChol on X-axis
+* plot the graphs with Diabetes on Y axis and HvyAlcoholConsump on X-axis
+* plot the graphs with Diabetes and physical, general, or mental health
+* Finally provide useful analysis for people who can change their 
+  lifestyle to reduce Diabetes cases.
+
+
+# How your approach addresses (fully or partially) the problem.
+The analysis gives us the idea of which factors are more likely to cause diabetes and share the results with everyone, so that people will change their lifestyles accordingly to reduce diabetes problems in the future.
+
+
+# Data  (Minimum of 3 Datasets - but no requirement on number of fields or rows)
+3 data sets  chosen for this project are from Kaggle site.
+
+* diabetes_012_health_indicators_BRFSS2015.xlsx
+* diabetes_binary_5050split_health_indicators_BRFSS2015.xlsx
+* diabetes_binary_health_indicators_BRFSS2015.xlsx
+
+The purpose of the data is to analyze the factors/predictors affecting Diabetes. The data was collected from the year 2015. The  original data has 22 columns in each data set many thousands of rows/records. 
+There were no missing data. I took 50 rows/records from each dataset and combined them into one dataset by binding the rows 
+which now have 150 rows/records.
+
+# Required Packages
+
+The important packages needed for this project are  
+
+* realxl -- to read the excel data files.
+* dplyr -- to analyze/transform the data using GroupBy, Summarize, Mutate, Filter, Select, and Arrange
+* tidyr -- to tidy data to make the data more consistent 
+* ggplot2 -- for visualizing the different factors affecting diabetes.
+* pheatmap -- to draw a heatmap of our correlation table
+* psych --  to derive descriptive statistics for a data set 
+
+# Plots and Table Needs
+
+Below are the Plots and tables used in this project: 
+
+* histograms
+* bar graphs
+* heatmaps
+* scatterplots
+* boxplots
+
+# Questions for future steps
+
+I do not know how to graph using heatmaps to visualize all the predictors for data analysis.
+
+##  Diabetes Indicator Project
+## Set the working directory to the root of your DSC 520 directory
+```{r}
+setwd("C:/MadhuriDocs/MSInDataScience/DSC520RCourse3/Week8/project_data/Health")
+getwd()
+```
+
+
+
+## Load the dataset 1 
+
+```{r}
+library(readxl)
+excel_sheets('diabetes_indicator.xlsx')
+diabetes_indicator_df <- read_excel('diabetes_indicator.xlsx',  sheet='Sheet1')
+diabetes_indicator_df
+
+
+```
+
+#rename the "Diabetes_012" column to "Diabetes" column to match columns with other dataframes
+```{r}
+names(diabetes_indicator_df)[names(diabetes_indicator_df) == "Diabetes_012"] <- "Diabetes"
+diabetes_indicator_df
+```
+
+
+
+```{r}
+summary(diabetes_indicator_df)
+```
+
+```{r}
+library("psych")
+describe(diabetes_indicator_df)
+```
+
+
+## Load the dataset 2
+```{r}
+excel_sheets('diabetes_indicator.xlsx')
+diabetes_indicator_5050split_df <- read_excel('DiabetesIndicator_5050split.xlsx',  sheet='Sheet1')
+diabetes_indicator_5050split_df
+
+
+```
+
+#rename the "Diabetes_binary" column to "Diabetes" column to match columns with other dataframes
+```{r}
+names(diabetes_indicator_5050split_df)[names(diabetes_indicator_5050split_df) == "Diabetes_binary"] <- "Diabetes"
+diabetes_indicator_5050split_df
+```
+
+
+
+```{r}
+summary(diabetes_indicator_5050split_df)
+```
+
+```{r}
+describe(diabetes_indicator_5050split_df)
+```
+
+## Load the dataset 3 
+
+```{r}
+excel_sheets('diabetes_indicator.xlsx')
+diabetes_binary_df <- read_excel('diabetes_binary.xlsx',  sheet='Sheet1')
+diabetes_binary_df
+
+
+```
+
+#rename the "Diabetes_binary" column to "Diabetes" column to match columns with other dataframes
+```{r}
+names(diabetes_binary_df)[names(diabetes_binary_df) == "Diabetes_binary"] <- "Diabetes"
+diabetes_binary_df
+```
+
+```{r}
+summary(diabetes_binary_df)
+```
+```{r}
+describe(diabetes_binary_df)
+
+```
+
+## Bind all the three datasets into one dataset
+
+```{r}
+library(dplyr)
+diabetes_df <- bind_rows(diabetes_indicator_df, diabetes_indicator_5050split_df, diabetes_binary_df)
+diabetes_df
+```
+
+
+
+
+```{r}
+summary(diabetes_df)
+```
+
+```{r}
+describe(diabetes_df)
+
+```
+
+## omit the data with Na values.
+```{r}
+na.omit(diabetes_df)
+```
+
+
+Here there are no NA values in the data
+
+
+## Analyze how Diabetes depends on BMI 
+
+
+
+```{r}
+
+# Create a Histogram of the BMI variable using the ggplot2 package.
+
+library(ggplot2)
+ggplot(diabetes_df,aes(BMI)) + geom_histogram(bins = 15)
+```
+
+
+```{r}
+## remove the outliers
+x <- diabetes_df$`BMI`                                             # Print data
+
+x_out_rm <- x[!x %in% boxplot.stats(x)$out]    # Remove the outliers
+
+length(x) - length(x_out_rm)                   # Count the removed observations
+
+
+```
+
+
+## Create boxplot without outliers
+
+```{r}
+boxplot(x_out_rm)
+
+```
+
+## Using GroupBy function from dplyr package to group by Diabetes
+
+```{r}
+library(dplyr)
+diabetes_df %>% group_by(Diabetes) %>% summarize(AvgBMI = mean(`BMI`))
+```
+
+0 = no diabetes 1 = prediabetes 2 = diabetes
+So, based on the above analysis, the BMI should be maintained around 27.7 in order to reduce the chances of Diabetes.
+
+Furthur analysis will be done on other predictors
+
+
+# References
+
+*[Datasets from Kaggle website](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)*
