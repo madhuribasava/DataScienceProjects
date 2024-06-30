@@ -20,4 +20,6 @@ Data Science Projects
 8)	Big Data Project:  This project’s objective is to find which city in the US has the most illnesses so we can build facilities and provide more services to improve people’s health. Big Data Components used for this project are HDFS, Spark, and Yarn. The big        city health dataset is uploaded into HDFS and seamlessly integrated into Spark. PySpark is used for data analysis and machine learning integration.
 9)	Heart Health Prediction Project: This project focuses on improving Heart health by creating models that can predict the likelihood of the individual suffering from heart disease based on the given features.
 10)	Airline Fatalities Project: This project is a work in progress and not yet completed as I have taken this course also in this summer 2024 semester.
+11)	Placeholder for DSC680 Applied Data Science Project 2
+12)	 Placeholder for DSC680 Applied Data Science Project 3
 
