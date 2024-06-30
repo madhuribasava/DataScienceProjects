@@ -1,13 +1,13 @@
-Introduction
+### Introduction
 The Heart Health Prediction Project aims to leverage machine learning to predict the risk of heart disease in individuals. By analyzing various health metrics and lifestyle factors, the model helps in early identification of high-risk patients, enabling proactive healthcare measures.
 
-Features
+### Features
 Predicts the likelihood of heart disease based on user input.
 Utilizes various machine learning algorithms for accurate prediction.
 Easy-to-use interface for healthcare professionals and individuals.
 Data visualization for better understanding of risk factors.
 
-Installation
+### Installation
 To get a local copy up and running, follow these steps:
 1) Clone the repository
 2) Create a virtual environment
@@ -21,14 +21,14 @@ This folder consists of 5 files:
 4) HeartHealthPrediciton_White Paper.doc is the Project summary file.
 5) HeartHealthPrediction_Presentation.ppt  is the Power point file.
 
-Run
+### Run
 Project1_HeartHealthPrediction_Code.ipynb file in jupiter notebook.
 
-Data
+### Data
 The project uses a dataset containing various health metrics such as age, gender, cholesterol levels, blood pressure, diabetes status, etc. Ensure your data is cleaned and preprocessed before use.
 
-Model
+### Model
 The project employs several machine learning algorithms, including Logistic Regression, K-Nearest Neighbors, and Naive Bayes. The models are trained on historical data to predict the risk of heart disease.
 
-Evaluation
+### Evaluation
 Model performance is evaluated using metrics such as accuracy, precision, recall, F1 score, and ROC-AUC. 
