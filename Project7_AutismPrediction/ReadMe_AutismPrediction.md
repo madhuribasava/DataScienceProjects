@@ -29,7 +29,7 @@ PythonCode_AutismPrediction.ipynb file in jupiter notebook.
 The project uses a dataset containing various metrics such as A1-A10 scores, age, gender, ethnicity,juandice,autism, etc. Ensure your data is cleaned and preprocessed before use.
 
 ## Model
-The project employs several machine learning algorithms, including K Nearest Neighbors, Decision Tree, LGBM (Light Gradient Boosting Machine), XGBRF (Extreme Gradient Boost-Random Forest), Cat Boost Classifier, Random Forest, Logistic Regression, and SVC (Support Vector Classifier). The models are trained on historical data to predict the risk of heart disease.
+The project employs several machine learning algorithms, including K Nearest Neighbors, Decision Tree, LGBM (Light Gradient Boosting Machine), XGBRF (Extreme Gradient Boost-Random Forest), Cat Boost Classifier, Random Forest, Logistic Regression, and SVC (Support Vector Classifier). The models are trained on historical data to predict the Autism.
 
 ## Evaluation
 Model performance is evaluated using metrics such as accuracy, and confusion matrix.
