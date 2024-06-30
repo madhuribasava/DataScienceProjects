@@ -1,0 +1,63 @@
+---
+title: "Week3-4 Assignemnt 1"
+author: "Madhuri Basava"
+date: "2024-06-25"
+output: 
+  pdf_document: 
+    highlight: espresso
+---
+
+## Set the working directory to the root of your DSC 520 directory
+```{r}
+setwd("C:/MadhuriDocs/MSInDataScience/DSC640_DataVisualization/data_week3-4")
+getwd()
+```
+
+```{r}
+library("readxl")
+unemployment_rate_df <- read.csv("unemployement-rate-1948-2010.csv")
+unemployment_rate_df
+```
+
+
+```{r}
+# Area Chart
+# install.packages("ggplot2")
+library(ggplot2)
+
+
+ggplot(unemployment_rate_df, aes(x = Year, y = Value)) + 
+  geom_area(fill="blue") + theme(panel.background = element_blank())
+```
+
+
+```{r}
+#Stacked Area chart
+
+ggplot(unemployment_rate_df, aes(x=Year, y=Value, fill=Period)) + 
+    geom_area()+ theme(panel.background = element_blank())
+```
+
+
+
+```{r}
+
+# Tree Map
+
+# install.packages("treemapify")
+library(treemapify)
+# install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(unemployment_rate_df, aes(area = Value, fill = Period, label = Value)) +
+  geom_treemap() +
+  geom_treemap_text()
+```
+
+```{r}
+# Step Chart
+ggplot() + 
+  geom_step(data=unemployment_rate_df,mapping=aes(x=Year,y=Value),
+            linetype=1,color='#1b9e77',alpha=1.5) + theme_bw()
+```
+

@@ -1,0 +1,99 @@
+ID,ISBN,Authors,Title,Publication YEAR,Average rating
+1,439023483,Suzanne Collins,The Hunger Games,2008,4.43
+2,439554934,"J.K. Rowling, Mary GrandPré",Harry Potter and the Philosopher's Stone,1997,4.44
+3,316015849,Stephenie Meyer,Twilight,2005,3.57
+4,61120081,Harper Lee,To Kill a Mockingbird,1960,4.25
+5,743273567,F. Scott Fitzgerald,The Great Gatsby,1925,3.89
+6,525478817,John Green,The Fault in Our Stars,2012,4.26
+7,618260307,J.R.R. Tolkien,The Hobbit or There and Back Again,1937,4.25
+8,316769177,J.D. Salinger,The Catcher in the Rye,1951,3.79
+9,1416524797,Dan Brown,Angels & Demons,2000,3.85
+10,679783261,Jane Austen,Pride and Prejudice,1813,4.24
+11,1594480001,Khaled Hosseini,The Kite Runner,2003,4.26
+12,62024035,Veronica Roth,Divergent,2011,4.24
+13,451524934,George Orwell,Nineteen Eighty-Four,1949,4.14
+14,452284244,George Orwell,Animal Farm: A Fairy Story,1945,3.87
+15,553296981,Anne Frank,Het Achterhuis,1947,4.1
+16,307269752,"Stieg Larsson, Reg Keeland",Män som hatar kvinnor,2005,4.11
+17,439023491,Suzanne Collins,Catching Fire,2009,4.3
+18,43965548,"J.K. Rowling, Mary GrandPré",Harry Potter and the Prisoner of Azkaban,1999,4.53
+19,618346252,J.R.R. Tolkien,The Fellowship of the Ring,1954,4.34
+20,439023513,Suzanne Collins,Mockingjay,2010,4.03
+21,439358078,"J.K. Rowling, Mary GrandPré",Harry Potter and the Order of the Phoenix,2003,4.46
+22,316166685,Alice Sebold,The Lovely Bones,2002,3.77
+23,439064864,"J.K. Rowling, Mary GrandPré",Harry Potter and the Chamber of Secrets,1998,4.37
+24,439139600,"J.K. Rowling, Mary GrandPré",Harry Potter and the Goblet of Fire,2000,4.53
+25,545010225,"J.K. Rowling, Mary GrandPré",Harry Potter and the Deathly Hallows,2007,4.61
+26,307277674,Dan Brown,The Da Vinci Code,2003,3.79
+27,439785960,"J.K. Rowling, Mary GrandPré",Harry Potter and the Half-Blood Prince,2005,4.54
+28,140283331,William Golding,Lord of the Flies,1954,3.64
+29,743477111,William Shakespeare,Tragedie of Romeo and Juliet,1595,3.73
+30,297859382,Gillian Flynn,Gone Girl,2012,4.03
+31,399155341,Kathryn Stockett,The Help,2009,4.45
+32,142000671,John Steinbeck,Of Mice and Men,1937,3.84
+33,739326228,Arthur Golden,Memoirs of a Geisha,1997,4.08
+34,1612130291,E.L. James,Fifty Shades of Grey,2011,3.67
+35,61122416,"Paulo Coelho, Alan R. Clarke",O Alquimista,1988,3.82
+36,385732554,Lois Lowry,The Giver,1993,4.12
+37,60764899,C.S. Lewis,"The Lion, the Witch and the Wardrobe",1950,4.19
+38,965818675,Audrey Niffenegger,The Time Traveler's Wife,2003,3.95
+39,553588486,George R.R. Martin,A Game of Thrones,1996,4.45
+40,143038419,Elizabeth Gilbert,"Eat, pray, love",2006,3.51
+41,786838655,Rick Riordan,The Lightning Thief,2005,4.23
+42,451529308,Louisa May Alcott,Little Women,1868,4.04
+43,142437204,"Charlotte Brontë, Michael Mason",Jane Eyre,1847,4.1
+44,553816713,Nicholas Sparks,The Notebook,1996,4.06
+45,770430074,Yann Martel,Life of Pi,2001,3.88
+46,1565125606,Sara Gruen,Water for Elephants,2006,4.07
+47,375831002,Markus Zusak,The Book Thief,2005,4.36
+48,307347974,Ray Bradbury,Fahrenheit 451,1953,3.97
+49,316160199,Stephenie Meyer,"New Moon (Twilight, #2)",2006,3.52
+50,60513039,Shel Silverstein,Where the Sidewalk End,1974,4.29
+51,1416914285,Cassandra Clare,City of Bones,2007,4.12
+52,316160202,Stephenie Meyer,Eclipse,2007,3.69
+53,375826696,Christopher Paolini,Eragon,2002,3.86
+54,345391802,Douglas Adams,The Hitchhiker's Guide to the Galaxy,1979,4.2
+55,60929871,Aldous Huxley,Brave New World,1932,3.97
+56,31606792,Stephenie Meyer,Breaking Dawn,2008,3.7
+57,142001740,Sue Monk Kidd,The Secret Life of Bees,2001,4.01
+58,142437174,"Mark Twain, John Seelye",The Adventures of Huckleberry Finn,1884,3.8
+59,64410935,E.B. White,Charlotte's Web,1952,4.15
+60,1400032717,Mark Haddon,The Curious Incident,2003,3.85
+61,1594633665,Paula Hawkins,The Girl on the Train,2015,3.88
+62,679879242,Philip Pullman,Northern Lights,1995,3.94
+63,393978893,"Emily Brontë, Richard J. Dunn",Wuthering Heights,1847,3.82
+64,743454537,Jodi Picoult,My Sister's Keeper,2004,4.06
+65,385333846,Kurt Vonnegut Jr.,Slaughterhouse-Five,1969,4.06
+66,446675539,Margaret Mitchell,Gone with the Wind,1936,4.28
+67,1594489505,Khaled Hosseini,A Thousand Splendid Suns,2007,4.34
+68,671027344,Stephen Chbosky,The Perks of Being a Wallflower,1999,4.21
+69,7442912,Veronica Roth,Insurgent,2012,4.07
+70,812550706,Orson Scott Card,Ender's Game,1985,4.3
+71,141439475,Mary Wollstonecraft Shelley,Frankenstein,1818,3.75
+72,450040186,Stephen King,The Shining,1977,4.17
+73,316068047,Stephenie Meyer,The Host,2008,3.84
+74,142402516,John Green,Looking for Alaska,2005,4.09
+75,14028009,Helen Fielding,The Modern Prometheus,1996,3.75
+76,141439661,"Jane Austen, Tony Tanner, Ros Ballaster",Sense and Sensibility,1811,4.06
+77,439244196,"Louis Sachar, Louis Sachar",Holes,1998,3.93
+78,307275558,Lauren Weisberger,The Devil Wears Prada,2003,3.7
+79,143039954,"Homer, Robert Fagles",Ὀδύσσεια,-720,3.73
+80,156012197,Antoine de Saint-Exupéry,Le Petit Prince,1946,4.28
+81,74324754,Jeannette Walls,The Glass Castle,2005,4.24
+82,385486804,Jon Krakauer,Into the Wild,1996,3.94
+83,141439602,Charles Dickens,A Tale of Two Cities,1859,3.81
+84,30734813,Michael Crichton,Jurassic Park,1990,3.96
+85,60256656,Shel Silverstein,The Giving Tree,1964,4.38
+86,385338600,John Grisham,A Time to Kill,1989,4.03
+87,374500010,"Elie Wiesel, Marion Wiesel",Un di Velt Hot Geshvign,1958,4.3
+88,14241493,John Green,Paper Towns,2008,3.88
+89,345418263,William Goldman,The Princess Bride,1973,4.25
+90,14038572,S.E. Hinton,The Outsiders,1967,4.06
+91,385737947,James Dashner,The Maze Runner,2009,4.02
+92,61234001,"Steven D. Levitt, Stephen J. Dubner",Freakonomics,2005,3.93
+93,517189607,Frances Hodgson Burnett,The Secret Garden,1911,4.12
+94,60531045,Gabriel García Márquez,Cien años de soledad,1967,4.04
+95,375751513,"Oscar Wilde, Jeffrey Eugenides",The Picture of Dorian Gray,1891,4.06
+96,345803507,E.L. James,Fifty Shades Freed,2012,3.88
+97,393970124,"Bram Stoker, Nina Auerbach, David J. Skal",Dracula,1897,3.98
+98,307269981,"Stieg Larsson, Reg Keeland",Flickan som lekte med elden,2006,4.22
