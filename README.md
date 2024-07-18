@@ -1,8 +1,7 @@
 ## Data Science Projects
 
 
-##	1) Customer Experience
-	##	1) Customer Experience
+##	1) Customer Experience	
 	Google Trends Project: Explains Customer Experience in various
 	sectors (Finance, Health care, Shopping) with Google Trends 
 	in many aspects like Online shopping, Clothing trends, Video games, 
