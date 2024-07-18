@@ -2,10 +2,8 @@
 
 
 ##	1) Customer Experience	
-	Google Trends Project: Explains Customer Experience in various
-	sectors (Finance, Health care, Shopping) with Google Trends 
-	in many aspects like Online shopping, Clothing trends, Video games, 
-	toys, cosmetics, and electronics.
+	Google Trends Project: Explains Customer Experience in various 	sectors (Finance, Health care, Shopping) with Google Trends 
+	in many aspects like Online shopping, Clothing trends, Video games, toys, cosmetics, and electronics.
 	
 ##  2) Cash Register Python Project
 	This Project creates a cash register and requests to enter the price and quantity and the item gets added to the cart.
