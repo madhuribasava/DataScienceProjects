@@ -1,4 +1,6 @@
-## Data Science Projects
+## Developer Portfolio -  My Data Science Projects Showcase
+Welcome to my developer portfolio! This repository serves as a showcase of my projects, demonstrating my skills, 
+creativity, and dedication to delivering high-quality software solutions.
 
 
 ## 1) Customer Experience	
