@@ -21,13 +21,12 @@ It consists of 5 files:
 
 	and many more visualizaions are added.
 
-Also Project folder has 3 more files for Airline Fatalities Project.
+	Also Project folder has 3 more files for Airline Fatalities Project.
 6) AirlineFatalities_ExecutiveSummary.doc which has the executive summary of Airline Fatalities Project.
 7) AirLineFatalities_Presentation.ppt is the power point slides file.
 8) AirLineProject.py has all the python code.
 9) Airplane_Crashes_and_Fatalities_Since_1908.csv  is the original data file
 10) Airplane_Crashes_and_Fatalities_updated.csv is the modified data(years 2019-2023) file.
-
 11) Executive_Summary_ppt_Exercise2.3.ppt is a power point presentatio for internal audience.
 12) Dashboard_Airlines_updated is the Apirlines Dashboard.
 13) AirLineFatalitiesBlog.pdf is the blog on Airline Safety for external audience.
