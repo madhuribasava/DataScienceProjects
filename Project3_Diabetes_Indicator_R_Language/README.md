@@ -34,5 +34,5 @@ It consists of 3 original datasets taken from Kaggle website:
 10) README file.
 
 ## Run
-run FinalProject_Step3_BasavaMadhuri.rmd file in RStudio.
+Run FinalProject_Step3_BasavaMadhuri.rmd file in RStudio.
 
