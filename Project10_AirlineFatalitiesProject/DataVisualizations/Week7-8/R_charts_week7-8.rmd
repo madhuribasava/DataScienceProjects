@@ -1,0 +1,117 @@
+---
+title: "Week7-8 Assignemnt 1"
+author: "Madhuri Basava"
+date: "2024-07-24"
+output: 
+  pdf_document: 
+    highlight: espresso
+---
+
+## Set the working directory to the root of your DSC 640 directory
+```{r}
+```
+
+
+```{r}
+setwd("C:/MadhuriDocs/MSInDataScience/DSC640_DataVisualization/week7-8")
+getwd()
+```
+
+```{r}
+library("readxl")
+players_df <- read.csv("ppg2008.csv")
+players_df
+```
+
+
+```{r}
+# HeatMap
+
+
+# install.packages("ggplot2")
+# install.packages("plyr")
+# install.packages("scales")
+library(ggplot2)
+library(plyr)
+library(scales)
+
+# Remove the Name column from the dataframe
+rownames(players_df) <- players_df$Name
+players_df <- players_df[-1]
+
+#Create the heatmap
+heatmap(as.matrix(players_df), Rowv = NA, Colv = NA, scale="column",
+        xlab = "values", ylab = "Players", main = "Player Values Heatmap",
+        col = colorRampPalette(c("white", "steelblue"))(256))
+   
+```
+
+
+```{r}
+geocoded_df <- read.csv("costcos-geocoded.csv")
+geocoded_df
+```
+
+
+```{r}
+#Spatial chart
+ install.packages("sf")
+library(sf)
+library(ggplot2)
+
+my_sf <- st_as_sf(geocoded_df, coords = c('Latitude', 'Longitude'))
+
+my_sf <- st_set_crs(my_sf, crs = 4326)
+
+#Plot it:
+
+ggplot(my_sf) + 
+  geom_sf(aes(color = State))
+
+
+```
+
+
+
+```{r}
+
+
+# install.packages("ggplot2")
+ install.packages("maps")
+library(ggplot2)
+library(maps)
+
+# Import the data with coordinates
+world <- geocoded_df
+
+# Plot the map. group = group connects the points in the correct order
+ggplot(data = world, aes(x = Longitude, y = Latitude, group = State)) + 
+  geom_point(color = "blue") 
+
+```
+
+
+
+
+```{r}
+players_df <- read.csv("ppg2008.csv")
+players_df
+```
+
+
+```{r}
+
+# Create Lollipop Chart
+
+# install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(players_df, aes(x = Name, y = PTS)) + 
+  geom_segment(aes(x = Name, xend = Name, y = 0, yend = PTS), color = "blue") +
+  geom_point(coclo = "blue", size = 3) +
+  coord_flip() + 
+  labs(x = "Player", y = "Points per Game") +
+  theme_minimal()
+```
+
+

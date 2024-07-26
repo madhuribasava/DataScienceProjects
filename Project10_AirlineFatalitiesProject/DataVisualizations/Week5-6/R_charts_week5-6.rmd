@@ -1,0 +1,64 @@
+---
+title: "Week5-6 Assignemnt 1"
+author: "Madhuri Basava"
+date: "2024-07-03"
+output: 
+  pdf_document: 
+    highlight: espresso
+---
+
+## Set the working directory to the root of your DSC 520 directory
+```{r}
+```
+
+
+```{r}
+setwd("C:/MadhuriDocs/MSInDataScience/DSC640_DataVisualization/week5-6")
+getwd()
+```
+
+```{r}
+library("readxl")
+crimerates_df <- read.csv("crimerates-by-state-2005.csv")
+crimerates_df
+```
+
+
+```{r}
+# ScatterPlots
+
+# install.packages("ggplot2")
+library(ggplot2)
+
+  
+ggplot(crimerates_df, aes(x = burglary, y = murder,col=burglary))  + geom_point(shape=2) +  theme_bw() 
+```
+
+
+```{r}
+#Bubble chart
+
+#create bubble chart and color circles based on value of population variable
+
+ggplot(crimerates_df, aes(x=burglary, y=murder, size=population/10000,col=population)) + 
+    geom_point()
+```
+
+
+
+```{r}
+
+# Density Plot
+
+# install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(data = crimerates_df, aes(x = robbery)) +
+   geom_density() +
+    labs(title = 'The robbery variable is right-skewed')
+
+
+```
+
+
+
