@@ -17,7 +17,7 @@ This Project creates a cash register and requests to enter the price and quantit
 	
 ## 3) Diabetes Indicator Project in ‘R’ Language
 This Project is on the Diabetes Indicator. I have taken 3 datasets from the Kaggle website. And create 3 new files
- with only 5 records each. Combined them into one dataset and performed the diabetes analysis. This Project is done in the ‘R’ 
+ with only 50 records each. Combined them into one dataset and performed the diabetes analysis. This Project is done in the ‘R’ 
  language. The analysis gave us the idea of which factors are more likely to cause diabetes and share the results with everyone
  so that people will change their lifestyles accordingly to reduce diabetes problems in the future. 
  

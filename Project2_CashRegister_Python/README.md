@@ -10,8 +10,9 @@ To get a local copy up and running, follow these steps:
 3) Install dependencies
 
 
+## Folder contents
 This folder consists 1 file: CashRegiter_Python.py
-and a read me.
+and a read me file.
 
 ## Run
 run CashRegiter_Python.py file in pycharm.
