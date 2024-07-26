@@ -36,5 +36,5 @@ It consists of 5 files:
 
 
 ## Run
-Run AirLineProject.py file in pycharm.
+Run AirLineProject.py file in Jupyter notebook.
 
