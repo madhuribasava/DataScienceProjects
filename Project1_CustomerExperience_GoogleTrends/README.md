@@ -10,6 +10,3 @@ with Google Trends charts.
 on different aspects like Online shopping, Clothing trends, Video games, toys, cosmetics, and electronics taken from Google trends.
 3) Tableau_PowerBI__visualizations file  which has various graphs and charts created in Power BI and Tableau 
 to know different options in these tools.
-
-
-
