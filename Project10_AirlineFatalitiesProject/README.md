@@ -1,6 +1,7 @@
 ## Introduction
-This Project creates a cash register and requests to enter the price and quantity and the item gets added to the cart.
-Finally, it displays all the items in the cart. This Project is done in Python language.
+This is the Analytics Project done in Python. This project aims to identify the future trends 
+of airline accidents and demonstrates that flight travel is safe. It involves power point 
+presentations for internal audience and Blog Post and Infographics for external audience.
 
 
 ## Installation
