@@ -74,8 +74,9 @@ This project focuses on improving Heart health by creating models that can predi
  Link: https://github.com/madhuribasava/DataScienceProjects/tree/main/Project9_HeartHealthPrediction
 	
 ## 10) Airline Fatalities Project
-This is the Analytics Project done in Python. This project aims to identify the future trends of airline accidents and demonstrates that flight travel is safe.
-This project is a work in progress and not yet completed as I have taken this course also in this summer 2024 semester.
+This is the Analytics Project done in Python. This project aims to identify the future trends 
+of airline accidents and demonstrates that flight travel is safe. It involves power point 
+presentations for internal audience and Blog Post and Infographics for external audience.
 
 Link: https://github.com/madhuribasava/DataScienceProjects/tree/main/Project10_AirlineFatalitiesProject  
  
