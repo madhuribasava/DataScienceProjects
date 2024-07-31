@@ -80,6 +80,10 @@ presentations for internal audience and Blog Post and Infographics for external 
 
 Link: https://github.com/madhuribasava/DataScienceProjects/tree/main/Project10_AirlineFatalitiesProject  
  
-## 11) Placeholder for DSC680 Applied Data Science Project 2
+## 11) Credit Card Fraud Detection
+This project focuses on detecting Credit Card Fraud by creating models that can predict the 
+likelihood of fraud based on the given features.
+
+https://github.com/madhuribasava/DataScienceProjects/tree/main/Project11_CreditCardFraud_Detection
 
 ## 12) Placeholder for DSC680 Applied Data Science Project 3
