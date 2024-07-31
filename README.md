@@ -87,3 +87,7 @@ likelihood of fraud based on the given features.
 Link: https://github.com/madhuribasava/DataScienceProjects/tree/main/Project11_CreditCardFraud_Detection
 
 ## 12) Placeholder for DSC680 Applied Data Science Project 3
+This project focuses on predicting Breast Cancer Survival by creating models that can predict the 
+likelihood of survival based on the given features and help them in every possible manner.
+
+Link: https://github.com/madhuribasava/DataScienceProjects/tree/main/Project12_BreastCancerSurvivalPrediction
