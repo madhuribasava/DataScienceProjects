@@ -22,7 +22,7 @@ This folder consists of 5 files:
 
 ## Run
 creditcard.csv needs to be loaded form the kaggle website.
-https://www.kaggle.com/code/gpreda/credit-card-fraud-detection-predictive-models/input?select=creditcard.csv
+https://www.kaggle.com/code/gpreda/credit-card-fraud-detection-predictive-models
 CreditCardFraudDetection_code.ipynb file in jupiter notebook.
 
 ## Data
