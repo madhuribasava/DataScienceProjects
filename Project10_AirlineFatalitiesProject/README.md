@@ -19,10 +19,7 @@ It consists of 5 files:
 3) R_charts.rmd is the code file in 'R' language.
 4) PowerBI_charts.pbix has the PowerBI visualizations.
 5) Visualizations.pdf is the pdf which has consolidated file with all the visualizations in python, R, and PowerBI.
-
-	and many more visualizaions are added.
-
-	Also Project folder has 3 more files for Airline Fatalities Project.
+   and many more visualizaions are added.   
 6) AirlineFatalities_ExecutiveSummary.doc which has the executive summary of Airline Fatalities Project.
 7) AirLineFatalities_Presentation.ppt is the power point slides file.
 8) AirLineProject.py has all the python code.
@@ -34,6 +31,8 @@ It consists of 5 files:
 14) AirLineSafetyBlogSummary_MadhuriBasava.doc is the summary of the Apirline Saftety Blog.
 15) AirlineSafetyInfographic.pdf is the infographic on Airline Safety for external audience.
 16) AirLineSafetyBlogSummary.doc is the summary of infographic.
+17) Summary_AirLineSafety_FinalPresentation.pdf is the Final Presentation Summary.
+18) FinalPresentation_airline.ppt is the Final Powerpoint presentation.
 
 
 ## Run
